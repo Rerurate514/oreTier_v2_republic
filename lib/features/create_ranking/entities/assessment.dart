@@ -11,7 +11,7 @@ abstract class Assessment with _$Assessment {
     required double star,
     required String impressions,
     required String imageBytes,
-    required List<String> tags
+    @Default([]) List<String> tags
   }) = _Assessment;
 
   factory Assessment.fromJson(Map<String, dynamic> json) => _$AssessmentFromJson(json);
