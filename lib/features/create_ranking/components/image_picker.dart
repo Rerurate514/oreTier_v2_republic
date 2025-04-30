@@ -27,10 +27,10 @@ class _ImagePickerState extends ConsumerState<ImagePicker> {
       child : InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: () {
-          ref.watch(isShowImageProvider.notifier).state = !ref.watch(isShowImageProvider.notifier).state;
+          ref.watch(isShowImageProvider.notifier).state = !ref.read(isShowImageProvider.notifier).state;
         },
         child: ref.watch(imageProvider.notifier).state != null
-        ? Image(image: ref.watch(imageProvider.notifier).state!)
+        ? Image(image: ref.read(imageProvider.notifier).state!)
         : const Center(
           child: Icon(
             Icons.image_search,
