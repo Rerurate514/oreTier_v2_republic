@@ -46,7 +46,7 @@ class RadiusTextComponent extends StatelessWidget {
               child: Text(
                 _text,
                 textScaler: TextScaler.noScaling,
-                style: TextStyle(
+                style: const TextStyle(
                   color: customPurpleColor,
                   fontWeight: FontWeight.bold
                 ),
