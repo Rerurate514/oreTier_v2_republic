@@ -14,6 +14,7 @@ class ImagePicker extends ConsumerStatefulWidget {
 class _ImagePickerState extends ConsumerState<ImagePicker> {
   @override
   Widget build(BuildContext context) {
+    final ImageProvider? image = ref.watch(imageProvider);
     return Container(
       height: 300,
       width: 300,
@@ -29,8 +30,8 @@ class _ImagePickerState extends ConsumerState<ImagePicker> {
         onTap: () {
           ref.watch(isShowImageProvider.notifier).state = !ref.read(isShowImageProvider.notifier).state;
         },
-        child: ref.watch(imageProvider.notifier).state != null
-        ? Image(image: ref.read(imageProvider.notifier).state!)
+        child: image != null
+        ? Image(image: image)
         : const Center(
           child: Icon(
             Icons.image_search,

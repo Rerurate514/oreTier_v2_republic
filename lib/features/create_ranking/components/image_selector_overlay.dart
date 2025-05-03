@@ -27,9 +27,10 @@ class _ImageSelectorOverlayState extends ConsumerState<ImageSelectorOverlay> {
       child: ref.watch(isShowImageProvider)
         ? ImageSelector(
             closeFragmentCallback: (ImageProvider? image, String pictureBase64) {
+              ref.watch(isShowImageProvider.notifier).state = !ref.watch(isShowImageProvider.notifier).state;
+              ref.watch(imageProvider.notifier).state = image;
+              
               setState(() {
-                ref.watch(isShowImageProvider.notifier).state = !ref.watch(isShowImageProvider.notifier).state;
-                ref.watch(imageProvider.notifier).state = image;
                 widget.finishCreatingImageCallback(pictureBase64);
               });
             },
